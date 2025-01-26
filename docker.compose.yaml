@@ -1,0 +1,20 @@
+services:
+  postgres:
+    container_name: postgresdb
+    image: postgres:latest
+    command: postgres -c 'max_connections=250'
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=connecttalent
+    volumes:
+      - C:\postgres-data:/var/lib/postgresql/data
+    restart: always
+
+networks:
+  qmp:
+    driver: bridge
+volumes:
+  postgres-data:
