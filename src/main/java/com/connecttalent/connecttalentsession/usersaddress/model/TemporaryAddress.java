@@ -6,29 +6,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "users_address")
-public class UsersAddress {
+@Table
+@AllArgsConstructor
+@NoArgsConstructor
+public class TemporaryAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "current_address")
+    @Column(nullable = false)
     private String street1;
 
+    @Column(nullable = false)
     private String street2;
 
+    @Column(nullable = false)
     private String city;
 
+    @Column(nullable = false)
     private String country;
-
-    private Integer postalCode;
 
 
 }
-
