@@ -33,10 +33,13 @@ public class User {
 
     private String gender;
 
+    @Column(length = 5000)
+    private String refreshToken;
+
     @OneToOne(cascade = CascadeType.ALL )
     private UsersAddress address;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true , fetch = FetchType.EAGER)
     private List<Role> roles;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true )
